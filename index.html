@@ -7,12 +7,12 @@
 <body>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <div id="app">
-    <ul>
-        <li v-for="todo in items">{{ todo }}</li>
-    </ul>
+    <li v-for="item in items">
+        {{ item.text }}
+        <div v-if="item.checked">Checked</div>
 
-    <input type="text" v-model="item">
-    <button @click="items.push(item)">Add Item</button>
+        <button @click="item.checked = !item.checked">Toggle</button>
+    </li>
 </div>
 
 <script>
@@ -20,10 +20,10 @@
         el: '#app',
 
         data: {
-            item: '',
-            items: [
-                'item1',
-                'item2'
+            items:[
+                {text: 'item1', checked:true},
+                {text: 'item2', checked:true},
+                {text: 'item3', checked:false},
             ]
         }
     });
