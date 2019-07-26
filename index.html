@@ -8,8 +8,8 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <div id="app">
     <input type="text" v-model="price"><!--여기서 값이 string 으로 됨 -->
-    <div>{{ taxFormatted }}</div>
-    <div>{{ totalFormatted }}</div>
+    <div>{{ moneyFormat(tax) }}</div>
+    <div>{{ moneyFormat(total) }}</div>
 </div>
 
 <script>
@@ -19,20 +19,19 @@
         data: {
             price:100,
         },
+        methods:{
+            moneyFormat: function(price){
+                return '$' + price + '.00';
+            },
+        },
         computed:{
             tax: function() {
                 return this.price * 0.1;
             },
-            taxFormatted: function(){
-                return '$' + this.tax;
-            },
             total: function(){
-                //this.price 값도 string
                 return parseInt(this.price) + this.tax;
             },
-            totalFormatted: function(){
-                return '$' + this.total;
-            }
+
         }
     });
 </script>
