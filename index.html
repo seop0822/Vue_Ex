@@ -4,18 +4,10 @@
     <meta charset="UTF-8">
     <title>Document</title>
 </head>
-<style>
-    .v-enter-active, .v-leave-active {
-        transition: opacity 1s;
-    }
 
-    .v-enter, v-leave-to {
-        opacity: 0;
-    }
-</style>
 <body>
 <div id="app">
-    <accordion v-for="item in items" :key="item.id" :view_property="item"></accordion>
+    <list></list>
 </div>
 
 <script src="./dist/app.js"></script>
